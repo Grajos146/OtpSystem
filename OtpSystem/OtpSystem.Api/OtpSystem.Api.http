@@ -1,0 +1,40 @@
+@OtpSystem.Api_HostAddress = http://localhost:5118
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWpvczYxNEBnbWFpbC5jb20iLCJzdWIiOiI5MWI0ZWM2MC0yODEzLTRjNDQtYjI5YS03NWJjN2VmYjg1OTgiLCJqdGkiOiJlOTRkZGEzNS0wNGUxLTQyYzgtYTJlMi0xODQwMGE1N2I0YzAiLCJleHAiOjE3Njg2NDA3NzgsImlzcyI6Ik90cFN5c3RlbSIsImF1ZCI6Ik90cFN5c3RlbVVzZXJzIn0.U7yLgUTh9UQEvejzw9H9fSAAKufTrKNjZF_B6f1mc2M
+
+GET http://localhost:5118/health/db
+
+###
+GET {{OtpSystem.Api_HostAddress}}/WeatherForecast/
+Accept: application/json
+
+###
+GET {{OtpSystem.Api_HostAddress}}/otp/expired/?pageNumber=1&pageSize=10
+Accept: application/json
+
+###
+GET {{OtpSystem.Api_HostAddress}}/otp/active/?pageNumber=1&pageSize=10
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+POST {{OtpSystem.Api_HostAddress}}/otp/request/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "grajos614@gmail.com"
+}
+
+###
+POST {{OtpSystem.Api_HostAddress}}/otp/validate/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "grajos614@gmail.com",
+  "correlationId": "8d9db953-0139-4459-9d59-cb97010b1d8c",
+  "code": "123781"
+}
+
+###
