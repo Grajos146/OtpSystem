@@ -1,0 +1,12 @@
+global using System.Data;
+global using System.Net;
+global using System.Net.Mail;
+global using System.Text.Json;
+global using Dapper;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Data.SqlClient;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using OtpSystem.Domain.Entities;
+global using OtpSystem.Domain.Interfaces;

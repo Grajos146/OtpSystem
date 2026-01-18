@@ -1,0 +1,16 @@
+global using System.Data;
+global using System.Security.Claims;
+global using System.Text;
+global using FluentValidation;
+global using Microsoft.Extensions.Options;
+global using Microsoft.IdentityModel.Tokens;
+global using OtpSystem.Api;
+global using OtpSystem.Application.DTO;
+global using OtpSystem.Application.Services;
+global using OtpSystem.Application.ValidationStatus;
+global using OtpSystem.Application.Validators;
+global using OtpSystem.Domain.Interfaces;
+global using OtpSystem.Infrastructure.Middleware;
+global using OtpSystem.Infrastructure.Persistence;
+global using OtpSystem.Infrastructure.Persistence.Repositories;
+global using OtpSystem.Infrastructure.Persistence.Services;

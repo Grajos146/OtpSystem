@@ -1,16 +1,3 @@
-using System.Data;
-using System.Text;
-using FluentValidation;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using OtpSystem.Api;
-using OtpSystem.Application.Services;
-using OtpSystem.Application.Validators;
-using OtpSystem.Domain.Interfaces;
-using OtpSystem.Infrastructure.Persistence;
-using OtpSystem.Infrastructure.Persistence.Repositories;
-using OtpSystem.Infrastructure.Persistence.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -60,6 +47,8 @@ builder
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 //This is to test my connection to the database
 app.MapGet(

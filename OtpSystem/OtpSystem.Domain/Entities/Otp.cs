@@ -1,5 +1,3 @@
-using OtpSystem.Domain.Services;
-
 namespace OtpSystem.Domain.Entities;
 
 public class Otp
@@ -24,7 +22,6 @@ public class Otp
 
     public bool IsLocked() => WrongAttempts >= 5;
 
-    // Checks if the date has been changed from the "Empty" marker
     public bool IsInvalidated() => InvalidatedAt.HasValue;
 
     public bool IsUsed() => UsedAt.HasValue;
@@ -52,7 +49,7 @@ public class Otp
         }
     }
 
-    // Private constructor for Dapper/Persistence
+    // Private constructor for Dapper/Persistence....changed to public 
     public Otp() { }
 
     public static Otp Create(

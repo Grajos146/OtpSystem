@@ -1,5 +1,3 @@
-using OtpSystem.Application.ValidationStatus;
-
 namespace OtpSystem.Application.DTO;
 
 public class AuthResponse

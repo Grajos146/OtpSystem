@@ -1,9 +1,3 @@
-using System.Security.Claims;
-using FluentValidation;
-using OtpSystem.Application.DTO;
-using OtpSystem.Application.Services;
-using OtpSystem.Application.ValidationStatus;
-
 namespace OtpSystem.Api;
 
 public static class OtpEndpoints
@@ -108,14 +102,19 @@ public static class OtpEndpoints
         group
             .MapGet(
                 "/expired",
-                async (string? email, int pageNumber, int pageSize, OtpServices _otp, ClaimsPrincipal user) =>
+                async (
+                    string? email,
+                    int pageNumber,
+                    int pageSize,
+                    OtpServices _otp,
+                    ClaimsPrincipal user
+                ) =>
                 {
-
                     var claimsEmail = user.FindFirstValue(ClaimTypes.Email);
 
                     if (string.IsNullOrEmpty(claimsEmail))
                         return Results.Unauthorized();
-                   
+
                     if (pageNumber <= 0 || pageSize <= 0)
                     {
                         return Results.BadRequest("Invalid page");

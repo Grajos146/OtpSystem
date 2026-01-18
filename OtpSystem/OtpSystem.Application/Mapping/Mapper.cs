@@ -1,6 +1,3 @@
-using OtpSystem.Application.DTO;
-using OtpSystem.Domain.Entities;
-
 namespace OtpSystem.Application.Mapping;
 
 public class Mapper
@@ -16,7 +13,6 @@ public class Mapper
             ExpiresAt = otp.ExpiresAt,
             IsActive = otp.IsActive(),
             IsExpired = otp.IsExpired(),
-
         };
     }
 }

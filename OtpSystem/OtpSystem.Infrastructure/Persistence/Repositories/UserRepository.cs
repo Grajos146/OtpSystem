@@ -1,7 +1,3 @@
-using Dapper;
-using OtpSystem.Domain.Entities;
-using OtpSystem.Domain.Interfaces;
-
 namespace OtpSystem.Infrastructure.Persistence.Repositories;
 
 public class UserRepository : IUserRepository

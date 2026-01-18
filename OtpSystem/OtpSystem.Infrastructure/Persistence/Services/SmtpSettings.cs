@@ -1,5 +1,3 @@
-using System;
-
 namespace OtpSystem.Infrastructure.Persistence.Services;
 
 public class SmtpSettings

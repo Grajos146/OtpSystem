@@ -1,10 +1,3 @@
-using System.Security.Cryptography;
-using OtpSystem.Application.DTO;
-using OtpSystem.Application.Mapping;
-using OtpSystem.Application.ValidationStatus;
-using OtpSystem.Domain.Entities;
-using OtpSystem.Domain.Interfaces;
-
 namespace OtpSystem.Application.Services;
 
 public class OtpServices(
@@ -70,7 +63,7 @@ public class OtpServices(
         }
         catch
         {
-            // If email fails, invalidate the OTP so the user isn't blocked by the 1-minute rule
+            // This should invalidate the otp if email fails
             otp.InvalidatedAt = DateTime.UtcNow;
             await _otpRepository.UpdateAsync(otp);
             throw;

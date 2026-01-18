@@ -1,10 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Dapper;
-using OtpSystem.Application.Mapping;
-using OtpSystem.Domain.Entities;
-using OtpSystem.Domain.Interfaces;
-
 namespace OtpSystem.Infrastructure.Persistence.Repositories;
 
 public class OtpRepositories : IOtpRepository
@@ -150,8 +143,6 @@ public class OtpRepositories : IOtpRepository
             return otp;
         });
 
-
-
         var totalCount = await multi.ReadSingleAsync<int>();
 
         return (items, totalCount);
@@ -159,7 +150,6 @@ public class OtpRepositories : IOtpRepository
 
     public async Task<Otp?> GetLatestActiveOtpsByEmailAsync(string email)
     {
-        // Added JOIN with Users so we can filter by the email string
         const string sql = """
                 SELECT TOP 1 o.*
                 FROM Otps o
@@ -210,5 +200,4 @@ public class OtpRepositories : IOtpRepository
         using var conn = _factory.CreateConnection();
         await conn.ExecuteAsync(sql, otp);
     }
-
 }

@@ -1,6 +1,3 @@
-using FluentValidation;
-using OtpSystem.Application.DTO;
-
 namespace OtpSystem.Application.Validators;
 
 public class GenerateOtpRequestValidator : AbstractValidator<GenerateOtpRequest>
